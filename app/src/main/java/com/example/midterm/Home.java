@@ -71,46 +71,18 @@ public class Home extends AppCompatActivity {
         @Nullable
         @Override
         protected Void doInBackground(Void... params) {
-
-            /**
-             * Getting JSON Object from Web Using okHttp
-             */
             JSONObject jsonObject = JSON.getDataFromWeb();
 
             try {
-                /**
-                 * Check Whether Its NULL???
-                 */
                 if (jsonObject != null) {
-                    /**
-                     * Check Length...
-                     */
                     if(jsonObject.length() > 0) {
-                        /**
-                         * Getting Array named "contacts" From MAIN Json Object
-                         */
                         JSONArray array = jsonObject.getJSONArray("game");
 
-                        /**
-                         * Check Length of Array...
-                         */
                         int lenArray = array.length();
                         if(lenArray > 0) {
                             for(int jIndex = 0; jIndex < lenArray; jIndex++) {
-
-                                /**
-                                 * Creating Every time New Object
-                                 * and
-                                 * Adding into List
-                                 */
                                 Game games = new Game();
 
-                                /**
-                                 * Getting Inner Object from contacts array...
-                                 * and
-                                 * From that We will get Name of that Contact
-                                 *
-                                 */
                                 JSONObject game = array.getJSONObject(jIndex);
                                 String name = game.getString("name");
                                 String rating = game.getString("rating");
@@ -122,9 +94,6 @@ public class Home extends AppCompatActivity {
                                 games.setPrice(price);
                                 games.setDescription(description);
 
-                                /**
-                                 * Adding name and phone concatenation in List...
-                                 */
                                 arrayListGame.add(games);
                             }
                         }
@@ -142,10 +111,7 @@ public class Home extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             dialog.dismiss();
-            /**
-             * Checking if List size if more than zero then
-             * Update ListView
-             */
+
             if(arrayListGame.size() > 0) {
                 adapter.notifyDataSetChanged();
             }

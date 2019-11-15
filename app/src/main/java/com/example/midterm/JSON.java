@@ -14,27 +14,13 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class JSON {
-    /********
-     * URLS
-     *******/
+
     private static final String MAIN_URL = "https://api.myjson.com/bins/14iyha";
-    /**
-     * TAGs Defined Here...
-     */
+
     public static final String TAG = "TAG";
-    /**
-     * Key to Send
-     */
-    //private static final String KEY_USER_ID = "user_id";
-    /**
-     * Response
-     */
+
     private static Response response;
-    /**
-     * Get Table Booking Charge
-     *
-     * @return JSON Object
-     */
+
     public static JSONObject getDataFromWeb() {
         try {
             OkHttpClient client = new OkHttpClient();
