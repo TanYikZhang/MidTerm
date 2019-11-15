@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 String inputPassword = setSHA256(EditPassword.getText().toString());
 
                 if (inputUsername.equals(username) && inputPassword.equals(password)) {
-                    Toast.makeText(MainActivity.this, "Login Succesfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(MainActivity.this, Home.class);
                     startActivity(i);
                     finish();
