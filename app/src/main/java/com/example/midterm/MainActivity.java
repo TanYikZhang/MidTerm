@@ -10,12 +10,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class MainActivity extends AppCompatActivity {
     private EditText EditUsername, EditPassword;
     private Button btnLogin;
-    private String username = "", password="12345678", haha="";
+    private String username = "", password=setSHA256("12345678");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String inputUsername = EditUsername.getText().toString();
                 String inputPassword = setSHA256(EditPassword.getText().toString());
-                password=setSHA256(password);
 
                 if (inputUsername.equals(username) && inputPassword.equals(password)) {
                     Toast.makeText(MainActivity.this, "Login Succesfully", Toast.LENGTH_SHORT).show();
